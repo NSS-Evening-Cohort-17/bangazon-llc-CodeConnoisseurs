@@ -32,7 +32,7 @@ class PaymentTests(APITestCase):
         }
 
         response = self.client.post('/api/payment-types', data, format='json')
-
+        
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertIsNotNone(response.data['id'])
         self.assertEqual(response.data["merchant_name"], data['merchant'])
