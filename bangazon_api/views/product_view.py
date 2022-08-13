@@ -31,7 +31,7 @@ class ProductView(ViewSet):
     def create(self, request):
         """Create a new product for the current user's store"""
         store = Store.objects.get(seller=request.auth.user)
-        category = Category.objects.get(pk=request.data['categoryId'])
+        category = Category.objects.get(pk=request.data['category_id'])
         try:
             product = Product.objects.create(
                 name=request.data['name'],
