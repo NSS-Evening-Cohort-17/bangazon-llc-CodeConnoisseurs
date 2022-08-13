@@ -32,7 +32,11 @@ class Product(models.Model):
         for rating in self.ratings.all():
             total_rating += rating.score
 
-        avg = total_rating / self.ratings.count()
+        if total_rating == 0:
+            return 0
+        else:
+            avg = total_rating / self.ratings.count()
+
         return avg
 
     @property
