@@ -1,4 +1,5 @@
 from datetime import datetime
+from re import X
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import status
@@ -35,7 +36,7 @@ class OrderView(ViewSet):
             schema=MessageSerializer()
         ),
     })
-    def destroy(self, request, pk):
+    def delete(self, request, pk):
         """Delete an order, current user must be associated with the order to be deleted
         """
         try:

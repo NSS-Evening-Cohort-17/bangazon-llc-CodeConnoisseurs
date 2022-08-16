@@ -20,7 +20,6 @@ class PaymentTests(APITestCase):
 
         self.faker = Faker()
 
-
     def test_create_payment_type(self):
         """
         Ensure we can add a payment type for a customer.
@@ -36,4 +35,5 @@ class PaymentTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertIsNotNone(response.data['id'])
         self.assertEqual(response.data["merchant_name"], data['merchant'])
-        self.assertEqual(response.data["obscured_num"][-4:], data['acctNumber'][-4:])
+        self.assertEqual(response.data["obscured_num"]
+                         [-4:], data['acctNumber'][-4:])
